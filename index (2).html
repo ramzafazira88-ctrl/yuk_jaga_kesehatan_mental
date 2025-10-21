@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuk Jaga Kesehatan Mental - Pengecekan untuk Remaja</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { background: linear-gradient(135deg, #e3f2fd, #f3e5f5); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e3f2fd" width="1200" height="600"/><circle fill="%23bbdefb" cx="200" cy="200" r="100"/><circle fill="%23bbdefb" cx="1000" cy="400" r="150"/></svg>'); background-size: cover; color: white; padding: 100px 0; }
+        .card { border: none; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-radius: 15px; }
+        .btn-primary { background: #2196f3; border: none; }
+        .btn-primary:hover { background: #1976d2; }
+        footer { background: #1976d2; color: white; padding: 20px 0; }
+        .progress { height: 10px; }
+        #hasil { display: none; }
+        .skor-normal { color: #4caf50; }
+        .skor-ringan { color: #ff9800; }
+        .skor-sedang { color: #f57c00; }
+        .skor-berat { color: #f44336; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#"><i class="fas fa-brain"></i> Yuk Jaga Kesehatan Mental</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tes">Tes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Yuk Jaga Kesehatan Mentalmu!</h1>
+            <p class="lead">Pengecekan sederhana untuk remaja. Deteksi dini gejala stres, depresi, dan kecemasan.</p>
+            <a href="#tes" class="btn btn-light btn-lg">Mulai Tes Sekarang <i class="fas fa-arrow-right"></i></a>
+            <p class="mt-3"><small>Dibuat oleh <strong>Aldilla Novriana</strong></small></p>
+        </div>
+    </section>
+
+    <!-- Tes Section -->
+    <section id="tes" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card p-4">
+                        <h2 class="text-center mb-4"><i class="fas fa-clipboard-list"></i> Tes Kesehatan Mental Remaja</h2>
+                        <p class="text-center">Jawab pertanyaan di bawah ini berdasarkan 2 minggu terakhir. Skala: 0 = Tidak pernah, 1 = Beberapa hari, 2 = Lebih dari setengah hari, 3 = Hampir setiap hari.</p>
+                        <form id="formTes">
+                            <div id="questions"></div>
+                            <div class="progress mb-3">
+                                <div id="progressBar" class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <button type="button" class="btn btn-primary w-100" onclick="submitTes()">Selesai Tes</button>
+                        </form>
+                        <div id="hasil" class="mt-4 p-3 bg-light rounded">
+                            <h3>Hasil Tes Anda</h3>
+                            <h4 id="skorTotal" class="skor-normal"></h4>
+                            <p id="interpretasi"></p>
+                            <p id="saran"></p>
+                            <a href="https://www.kemenkes.go.id/" class="btn btn-success" target="_blank">Hubungi Layanan Kesehatan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Section -->
+    <section id="tentang" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Tentang Kami</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://via.placeholder.com/500x300?text=Aldilla+Novriana" class="img-fluid rounded" alt="Aldilla Novriana">
+                </div>
+                <div class="col-md-6">
+                    <h4>Pencetus: Aldilla Novriana</h4>
+                    <p>Aldilla Novriana adalah mahasiswa/psikolog muda yang peduli dengan kesehatan mental remaja di Indonesia. Website ini dibuat untuk membantu remaja mendeteksi dini masalah kesehatan mental dan mendorong mereka mencari bantuan profesional.</p>
+                    <p><strong>Disclaimer:</strong> Tes ini hanya alat skrining awal, bukan diagnosis medis. Konsultasikan dengan psikolog atau dokter untuk penanganan lebih lanjut.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <p>&copy; 2024 Yuk Jaga Kesehatan Mental. Dibuat dengan ❤ oleh <strong>Aldilla Novriana</strong>. | Kontak: aldilla@example.com</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const questions = [
+            "Merasa sedih, depresi, atau putus asa?",
+            "Sulit tidur, bangun terlalu pagi, atau tidur berlebihan?",
+            "Merasa lelah atau kurang energi?",
+            "Makan lebih sedikit atau lebih banyak dari biasa?",
+            "Sulit berkonsentrasi atau membuat keputusan?",
+            "Merasa gelisah atau lambat bergerak?",
+            "Merasa buruk tentang diri sendiri — atau gagal sebagai orang tua/saudara/teman?",
+            "Sulit menikmati hal-hal yang biasanya menyenangkan?",
+            "Pernah berpikir untuk melukai diri sendiri?",
+            "Merasa cemas atau khawatir berlebihan?"
+        ];
+
+        let currentQuestion = 0;
+        let scores = [];
+
+        function loadQuestion() {
+            const container = document.getElementById('questions');
+            if (currentQuestion < questions.length) {
+                container.innerHTML = `
+                    <h5>Pertanyaan ${currentQuestion + 1}/${questions.length}: ${questions[currentQuestion]}</h5>
+                    <div class="row">
+                        <div class="col"><button type="button" class="btn btn-outline-primary w-100 mb-2" onclick="selectAnswer(0)">0 - Tidak pernah</button></div>
+                        <div class="col"><button type="button" class="btn btn-outline-primary w-100 mb-2" onclick="selectAnswer(1)">1 - Beberapa hari</button></div>
+                        <div class="col"><button type="button" class="btn btn-outline-primary w-100 mb-2" onclick="selectAnswer(2)">2 - Lebih dari setengah hari</button></div>
+                        <div class="col"><button type="button" class="btn btn-outline-primary w-100" onclick="selectAnswer(3)">3 - Hampir setiap hari</button></div>
+                    </div>
+                    <button type="button" class="btn btn-secondary mt-3" onclick="nextQuestion()">Lanjut</button>
+                `;
+                document.getElementById('progressBar').style.width = ${((currentQuestion / questions.length) * 100)}%;
+            }
+        }
+
+        function selectAnswer(score) {
+            scores[currentQuestion] = score;
+            nextQuestion();
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                document.getElementById('formTes').style.display = 'none';
+                submitTes();
+            }
+        }
+
+        function submitTes() {
+            const totalScore = scores.reduce((a, b) => a + b, 0);
+            let klasifikasi = '';
+            let warna = 'skor-normal';
+            let saran = '';
+
+            if (totalScore <= 10) {
+                klasifikasi = 'Normal';
+                saran = 'Kesehatan mental Anda baik! Tetap jaga dengan olahraga, tidur cukup, dan curhat ke teman.';
+            } else if (totalScore <= 20) {
+                klasifikasi = 'Ringan';
+                warna = 'skor-ringan';
+                saran = 'Ada tanda-tanda ringan. Coba relaksasi, meditasi, atau bicara dengan orang terdekat.';
+            } else if (totalScore <= 30) {
+                klasifikasi = 'Sedang';
+                warna = 'skor-sedang';
+                saran = 'Perlu perhatian. Konsultasi dengan konselor sekolah atau psikolog.';
+            } else {
+                klasifikasi = 'Berat';
+                warna = 'skor-berat';
+                saran = 'Segera cari bantuan profesional! Hubungi hotline Kesehatan Jiwa: 119 ext. 8 atau psikolog terdekat.';
+            }
+
+            document.getElementById('skorTotal').innerHTML = Skor: ${totalScore}/30 - ${klasifikasi};
+            document.getElementById('skorTotal').className = warna;
+            document.getElementById('interpretasi').innerHTML = <strong>${klasifikasi}</strong>: ${saran};
+            document.getElementById('hasil').style.display = 'block';
+            document.getElementById('progressBar').style.width = '100%';
+        }
+
+        // Load first question
+        window.onload = () => loadQuestion();
+    </script>
+</body>
+</html>
